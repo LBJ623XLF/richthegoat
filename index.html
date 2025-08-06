@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GOAT Robot Company</title>
+<style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background-color: black;
+      color: white;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.light {
+      background-color: white;
+      color: black;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+    }
+    .left-logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .brand-name {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      margin-left: 2em;
+      font-size: 1em;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    .theme-toggle {
+      margin-left: 2em;
+      cursor: pointer;
+      padding: 0.4em 0.8em;
+      border-radius: 8px;
+      border: 1px solid currentColor;
+      background: none;
+      color: inherit;
+    }
+    .explore-button {
+      display: inline-block;
+      margin-top: 1.5em;
+      padding: 0.75em 1.5em;
+      background-color: white;
+      color: black;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    body.light .explore-button {
+      background-color: #ddd;
+      color: black;
+    }
+    .robot-image {
+      width: 60%;
+      border-radius: 12px;
+      background-color: #f0f0f0;
+    }
+    body.light .robot-image {
+      background-color: #ddd;
+    }
+</style>
+</head>
+<body>
+<header>
+<div class="left-logo"><span class="brand-name">🐐 RIBOT</span></div>
+<nav>
+<a href="./index.html">Home</a>
+<a href="about.html">About</a>
+<a href="product.html">Product</a>
+<a href="solutions.html">Solutions</a>
+<a href="contact.html">Contact</a>
+<button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+</nav>
+</header>
+
+<!-- 🎥 顶部视频展示（适度加高，避免遮挡导航栏） -->
+<div style="position: relative; height: 85vh; overflow: hidden; margin-top: 100px;">
+<video autoplay loop muted playsinline style="
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  ">
+<source src="BOT.mp4" type="video/mp4"/>
+    Your browser does not support the video tag.
+</video>
+
+<!-- 视频覆盖文字 -->
+<div style="
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: white;
+    text-align: center;
+  ">
+<h1 style="font-size: 3em; font-weight: bold;">GOAT Robot Company</h1>
+<p style="font-size: 1.3em;">The future of personal robotics, reinvented.</p>
+</div>
+</div>
+
+<main style="padding: 2em; text-align: center;">
+<a class="explore-button" href="product.html">Explore RIBOT 001</a>
+<div style="margin-top: 2em;">
+<img alt="RIBOT 001" class="robot-image" src="RIBOT_001.JPG"/>
+</div>
+<section style="margin-top: 4em;">
+<h2 style="font-size: 1.5em;">Our Vision</h2>
+<p style="max-width: 600px; margin: 1em auto; font-size: 1em; color: gray;">
+        RIBOT envisions a world where personal robots become part of your daily life — not as tools, but as companions.
+</p>
+</section>
+</main>
+
+<script>
+    function toggleTheme() {
+      const current = document.body.classList.contains('light') ? 'light' : 'dark';
+      const newTheme = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+      document.body.classList.toggle('light');
+    }
+</script>
+<script>
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'light') document.body.classList.add('light');
+</script>
+</body>
+</html>
